@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Express solutions elegantly using your programming language | Engineering @ Logic Soft</title>
+  <link rel = 'canonical' href = 'http://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/'>
+  <meta name="description" content="Welcome to [Logic Soft](http://logicsoft.co.in)&#39;s engineering blog.
+
+We have been a technology company since 1986. To put that into perspective, we have been around since **before** the Internet went mainstream. Our product helps hundreds of businesses get absolute control of their day to day activities. Chances are that if you&#39;ve walked into a recognized book store in India (or even some places abroad), then it has been powered by Logic Soft&#39;s software behind the scenes.
+
+We&#39;re a bunch of hardworking individuals who believe that our work has an impact on the hundreds of clients that we serve. We believe in writing software that is readable and boring.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Express solutions elegantly using your programming language" />
+<meta property="og:description" content="Introduction The post features a case study of a real life problem and the C# programming language. It explains how we went about trying to best express the solution within the bounds of the C# language.
+Although we use the C# programming language here,the ideas shared in this post aren&rsquo;t specific to it and can be applied to any high level language you are working with.
+Problem Recently, for a customer requirement we had to work with a document that has both metadata and data." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2017-07-16T15:00:00+05:30" />
+<meta property="article:modified_time" content="2017-07-16T15:00:00+05:30" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Express solutions elegantly using your programming language"/>
+<meta name="twitter:description" content="Introduction The post features a case study of a real life problem and the C# programming language. It explains how we went about trying to best express the solution within the bounds of the C# language.
+Although we use the C# programming language here,the ideas shared in this post aren&rsquo;t specific to it and can be applied to any high level language you are working with.
+Problem Recently, for a customer requirement we had to work with a document that has both metadata and data."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="http://devblog.logicsoft.co.in/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+
+  
+   <link rel="stylesheet" href="http://devblog.logicsoft.co.in/css/custom.css"> 
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="http://devblog.logicsoft.co.in/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Archive</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" http://devblog.logicsoft.co.in/posts/aspnet5-hosting-hiccups-nginx-kestrel/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="http://devblog.logicsoft.co.in/posts/generate-a-quick-aws-dashboard-using-linqpad/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&text=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&title=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&is_video=false&description=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Express%20solutions%20elegantly%20using%20your%20programming%20language&body=Check out this article: http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&title=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&title=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&name=Express%20solutions%20elegantly%20using%20your%20programming%20language&description=Introduction%20The%20post%20features%20a%20case%20study%20of%20a%20real%20life%20problem%20and%20the%20C%23%20programming%20language.%20It%20explains%20how%20we%20went%20about%20trying%20to%20best%20express%20the%20solution%20within%20the%20bounds%20of%20the%20C%23%20language.%0aAlthough%20we%20use%20the%20C%23%20programming%20language%20here%2cthe%20ideas%20shared%20in%20this%20post%20aren%26rsquo%3bt%20specific%20to%20it%20and%20can%20be%20applied%20to%20any%20high%20level%20language%20you%20are%20working%20with.%0aProblem%20Recently%2c%20for%20a%20customer%20requirement%20we%20had%20to%20work%20with%20a%20document%20that%20has%20both%20metadata%20and%20data." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&t=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#solution">Solution</a>
+      <ul>
+        <li><a href="#part-1">Part 1</a></li>
+        <li><a href="#part-2">Part 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#take-aways">Take aways</a></li>
+    <li><a href="#credits">Credits</a></li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Express solutions elegantly using your programming language
+      </h1>
+      <div class="meta">
+        
+
+
+        <div class="postdate">
+          
+          <time datetime="2017-07-16 15:00:00 &#43;0530 IST" itemprop="datePublished">2017-07-16</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          5 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/ideas" rel="tag">Ideas</a>
+            
+             ,  
+            <a class="tag-link" href="/tags/csharp" rel="tag">CSharp</a>
+            
+        </div>
+        
+
+        
+        <br/>
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Shrayas (Head of Engineering)</span>
+        </span>
+        
+
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <h2 id="introduction">Introduction</h2>
+<p>The post features a case study of a real life problem and the C# programming
+language. It explains how we went about trying to best <em>express</em> the solution
+within the bounds of the C# language.</p>
+<p>Although we use the C# programming language here,the ideas shared in this post
+aren&rsquo;t specific to it and can be applied to any high level language you are
+working with.</p>
+<h2 id="problem">Problem</h2>
+<p>Recently, for a customer requirement we had to work with a document that
+has both metadata and data. This doc needed to be parsed and interpreted.
+Metadata is enclosed within <code>#</code> symbols and the associated value is provided
+just after it.</p>
+<p>Example:</p>
+<pre><code>...
+#BookName#Foobar
+#ChapterName#Adventures of Foo
+#SectionName#Introducing Foo
+...
+</code></pre><p>Tags allow for identifying various aspects of the document like chapters,
+sections, book names amongst others.</p>
+<p>The task was to parse out the document, identify sections and extract the
+necessary information.</p>
+<h2 id="solution">Solution</h2>
+<p>The first step is to identify the paragraphs that contain tags that are of 
+importance to us. Following this, we need to be able to parse out the data
+within these tags.</p>
+<p>Finally we put the metadata together with the data and return a
+<code>parsedDocument</code>.</p>
+<h3 id="part-1">Part 1</h3>
+<p>A loop that iterates paragraph by paragraph must now check the contents of the
+para for respective tags. For this, the tags have to be declared upfront. One
+way to do this is by declaring simple constants in the class:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">private</span> <span style="color:#ff79c6">const</span> <span style="color:#8be9fd">string</span> chapterNameTag = <span style="color:#f1fa8c">&#34;#ChapterName#&#34;</span>;
+<span style="color:#ff79c6">private</span> <span style="color:#ff79c6">const</span> <span style="color:#8be9fd">string</span> sectionNameTag = <span style="color:#f1fa8c">&#34;#SectionName#&#34;</span>;
+</code></pre></div><p>So the check block becomes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">if</span> (text.Has(chapterNameTag))
+{
+  <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><p>(Note: <code>Has</code> is a simple <a href="https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/extension-methods">C# extension method</a>
+on top of the <code>StartsWith</code> function to do the check case insensitively.)</p>
+<p>Simple constants work but I could do better, so I pulled out all the tags and
+moved them to a nested private class as public constants, so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Parser</span>
+{
+  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Tags</span>
+  {
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">const</span> <span style="color:#8be9fd">string</span> ClassName = <span style="color:#f1fa8c">&#34;#ClassName&#34;</span>;
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">const</span> <span style="color:#8be9fd">string</span> SectionName = <span style="color:#f1fa8c">&#34;#SectionName#&#34;</span>;
+    <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>  }
+}
+</code></pre></div><p>The checks now become:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">if</span> (text.Has(Tags.ClassName))
+{
+  <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>}
+</code></pre></div><p>This feels better than plain constants declared at the top. It feels more
+<em>intuitive</em> that new tags have a designated <em>place</em> to be declared viz a viz being
+declared as just constants in the class</p>
+<h3 id="part-2">Part 2</h3>
+<p>Once we have identified the tag, the next step is to extract the <code>&lt;name&gt;</code>
+portion from it. In our case, we&rsquo;d like to get out the <strong>Introduction to Foo</strong> from
+the <code>#SectionName#</code> tag. The simplest and initial approach to this was:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">if</span> (text.Has(Tags.SectionName))
+{
+  parsedDocument.SectionName = ExtractTextFromTag(text, Tags.SectionName);
+}
+</code></pre></div><p>This works, but <code>ExtractTextFromTag</code> is just a lone standing function, which
+kind of didn&rsquo;t <em>sit</em> for me (Pun intended). I thought it belongs better inside
+the <code>Tags</code> class.</p>
+<p>To satisfy my want, here&rsquo;s what I <em>could</em> do:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">if</span> (text.Has(Tags.SectionName))
+{
+  parsedDocument.SectionName = Tags.ExtractFromText(text, Tags.SectionName));
+}
+</code></pre></div><p>This solves it, sure. But I still felt I could do better because there is a
+repetition of <code>Tags.SectionName</code>. I wanted to be able to call a method on
+<code>Tags.SectionName</code> to parse it out. Think of it like calling <code>DateTime.Parse</code>.</p>
+<p>This is what I <em>wanted</em>:</p>
+<pre><code>parsedDocument.SectionName = Tags.SectionName.Parse(text);
+</code></pre><p>Hard to achieve, I thought since we&rsquo;ve declared <code>Tags.SectionName</code> as a string.</p>
+<p>The first thought was to add an <strong>extension</strong> method on the string class (like
+we did for the <code>Has</code> function). But this is a dead end since it would be
+available to <strong>all</strong> instances of the string class.</p>
+<p>Let&rsquo;s restate the problem we&rsquo;re facing:</p>
+<p><em>&ldquo;I wanted a way to describe <code>Tags.SectionName</code> in a way that would allow me to
+use it as a <strong>regular string</strong> for comparison purposes but still be a <strong>class</strong>
+where I could declare the <code>Parse</code> functionality.&quot;</em></p>
+<p>With this thought in mind, a bit of googling led me to the solution:</p>
+<p>C# allows to define methods in a class using the <a href="https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/implicit"><code>implicit</code>
+keyword</a>.
+Doing this allows you to define functionality for how the object should behave
+if it is treated as another type. Think of it like explicit type casting (a la
+<code>OtherType otherType = (OtherType)myType</code>) but just implicit.</p>
+<p>With that in mind, I defined a <code>Tag</code> class like so:</p>
+<p>(Note: Error handling avoided for the same of brevity and discussion)</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Tag</span>
+{
+    <span style="color:#ff79c6">private</span> <span style="color:#8be9fd">string</span> <span style="color:#bd93f9">_</span><span style="color:#ff79c6">value</span>;
+    
+    <span style="color:#ff79c6">public</span> Tag(<span style="color:#8be9fd">string</span> tag) 
+        =&gt; <span style="color:#bd93f9">_</span><span style="color:#ff79c6">value</span> = tag;
+
+    <span style="color:#ff79c6">public</span> <span style="color:#8be9fd">string</span> Parse(<span style="color:#8be9fd">string</span> textWithTag)
+        =&gt; Regex.Replace(textWithTag, <span style="color:#bd93f9">_</span><span style="color:#ff79c6">value</span>, <span style="color:#f1fa8c">&#34;&#34;</span>, RegexOptions.IgnoreCase);
+
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">implicit</span> <span style="color:#ff79c6">operator</span> <span style="color:#8be9fd">string</span>(Tag t)
+        =&gt; t.<span style="color:#bd93f9">_</span><span style="color:#ff79c6">value</span>;
+}
+</code></pre></div><p>Internally a <code>Tag</code> is just a value, so we mandate a tag to contain a value by
+accepting it in its constructor.</p>
+<p>This is followed by the definition of the <code>Parse</code> function. It takes the text
+with the tag (say <code>#SectionName#Introduction to Foo</code>) and strips out the
+<code>#SectionName#</code> part ignoring the case. We use <code>System.Text</code>&rsquo;s <code>Regex</code> class to
+do this for us. Simple and straightforward.</p>
+<p>What follows next is the usage of the <code>implicit operator string</code> which tells
+C#: <em>&ldquo;When this class is used as a <code>string</code>, return the <code>value</code> property&rdquo;</em>.</p>
+<p><strong>SUUUPER neat. WOO!</strong></p>
+<p>Now this allowed me to redefine the original <code>Tags</code> class like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Parser</span>
+{
+  <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">Tags</span>
+  {
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> Tag ClassName = <span style="color:#ff79c6">new</span> Tag(<span style="color:#f1fa8c">&#34;#ClassName&#34;</span>);
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">readonly</span> Tag SectionName = <span style="color:#ff79c6">new</span> Tag(<span style="color:#f1fa8c">&#34;#SectionName#&#34;</span>);
+    <span style="color:#6272a4">// ...
+</span><span style="color:#6272a4"></span>  }
+}
+</code></pre></div><p>Which means that I can now use this as <strong>both</strong> a string, and an instance on which
+I have a parse method. So my <code>if</code> condition and the parse block becomes:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-cs" data-lang="cs"><span style="color:#ff79c6">if</span> (text.Has(Tags.SectionName))
+{
+    parsedDocument.SectionName = Tags.SectionName.Parse(text);
+}
+</code></pre></div><p>This made me happy so I stopped right here.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>I&rsquo;m quite happy that everything is well contained and works together. This
+however isn&rsquo;t the approach I took for the program since I think its overkill
+for the particular scenario in the application. But it was a good opportunity
+to push myself to learn better ways to express a solution for such a problem.</p>
+<h2 id="take-aways">Take aways</h2>
+<ul>
+<li>When you think something isn&rsquo;t possible with the language, dig deeper. If you
+can think about it, chances are that someone already has and it has been 
+solved</li>
+<li>Learn the technical terms (In this case, <code>implicit type conversion C#</code> gave me
+what I was looking for). It becomes that much easier to narrow down your
+search when looking for answers</li>
+<li>Don&rsquo;t settle for what <em>just works</em>, ask yourself &ldquo;what is the <strong>best</strong> way to
+represent my problem&rdquo; and try to achieve that</li>
+</ul>
+<h2 id="credits">Credits</h2>
+<p>Major props to <a href="https://twitter.com/bargava">Bargava</a> for helping with proof
+reading the blog and <a href="https://twitter.com/argvk">VK</a> for helping bounce ideas
+off of on a lazy Sunday morning.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Archive</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#problem">Problem</a></li>
+    <li><a href="#solution">Solution</a>
+      <ul>
+        <li><a href="#part-1">Part 1</a></li>
+        <li><a href="#part-2">Part 2</a></li>
+      </ul>
+    </li>
+    <li><a href="#conclusion">Conclusion</a></li>
+    <li><a href="#take-aways">Take aways</a></li>
+    <li><a href="#credits">Credits</a></li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&text=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&title=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&is_video=false&description=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Express%20solutions%20elegantly%20using%20your%20programming%20language&body=Check out this article: http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&title=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&title=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&name=Express%20solutions%20elegantly%20using%20your%20programming%20language&description=Introduction%20The%20post%20features%20a%20case%20study%20of%20a%20real%20life%20problem%20and%20the%20C%23%20programming%20language.%20It%20explains%20how%20we%20went%20about%20trying%20to%20best%20express%20the%20solution%20within%20the%20bounds%20of%20the%20C%23%20language.%0aAlthough%20we%20use%20the%20C%23%20programming%20language%20here%2cthe%20ideas%20shared%20in%20this%20post%20aren%26rsquo%3bt%20specific%20to%20it%20and%20can%20be%20applied%20to%20any%20high%20level%20language%20you%20are%20working%20with.%0aProblem%20Recently%2c%20for%20a%20customer%20requirement%20we%20had%20to%20work%20with%20a%20document%20that%20has%20both%20metadata%20and%20data." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fexpress-solutions-elegantly-using-your-prog-lang%2f&t=Express%20solutions%20elegantly%20using%20your%20programming%20language" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  Logic Soft Pvt. Ltd. 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Archive</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+<script src=/js/code-copy.js></script>
+
+
+
+</html>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ideas on Engineering @ Logic Soft</title>
+    <link>http://devblog.logicsoft.co.in/tags/ideas/</link>
+    <description>Recent content in Ideas on Engineering @ Logic Soft</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Logic Soft Pvt. Ltd.</copyright>
+    <lastBuildDate>Sun, 16 Jul 2017 15:00:00 +0530</lastBuildDate><atom:link href="http://devblog.logicsoft.co.in/tags/ideas/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Express solutions elegantly using your programming language</title>
+      <link>http://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/</link>
+      <pubDate>Sun, 16 Jul 2017 15:00:00 +0530</pubDate>
+      
+      <guid>http://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/</guid>
+      <description>Introduction The post features a case study of a real life problem and the C# programming language. It explains how we went about trying to best express the solution within the bounds of the C# language.
+Although we use the C# programming language here,the ideas shared in this post aren&amp;rsquo;t specific to it and can be applied to any high level language you are working with.
+Problem Recently, for a customer requirement we had to work with a document that has both metadata and data.</description>
+    </item>
+    
+    <item>
+      <title>Dynamic prepared statements in Clojure</title>
+      <link>http://devblog.logicsoft.co.in/posts/dynamic-prepared-statements-in-clojure/</link>
+      <pubDate>Sun, 30 Aug 2015 10:51:00 +0530</pubDate>
+      
+      <guid>http://devblog.logicsoft.co.in/posts/dynamic-prepared-statements-in-clojure/</guid>
+      <description>So just recently, at Logic Soft, we put our first (small) clojure project into production. It was a small library management system that was custom developed for one of our existing clients.
+At Logic Soft, we are majorly a .NET house but we&amp;rsquo;re beginning to experiment with different platforms and technologies and felt that this was a small enough project to give clojure a shot (alongside other experiments we conducted with it).</description>
+    </item>
+    
+  </channel>
+</rss>

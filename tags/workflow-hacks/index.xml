@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workflow Hacks on Engineering @ Logic Soft</title>
+    <link>http://devblog.logicsoft.co.in/tags/workflow-hacks/</link>
+    <description>Recent content in Workflow Hacks on Engineering @ Logic Soft</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>Logic Soft Pvt. Ltd.</copyright>
+    <lastBuildDate>Thu, 05 Aug 2021 21:34:00 +0530</lastBuildDate><atom:link href="http://devblog.logicsoft.co.in/tags/workflow-hacks/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Quick access with SystemTrayMenu</title>
+      <link>http://devblog.logicsoft.co.in/posts/quick-access-everything-with-systemtraymenu/</link>
+      <pubDate>Thu, 05 Aug 2021 21:34:00 +0530</pubDate>
+      
+      <guid>http://devblog.logicsoft.co.in/posts/quick-access-everything-with-systemtraymenu/</guid>
+      <description>Problem Being head of engineering at a firm means having to juggle a lot of context. And in this quest, I am always looking for ways to optimize my workflow. I can (greatly) simplify all of the work I do into these categories:
+ Talking to folks &amp;ndash; Zoom  Usually via pre defined links - My personal link / Standup link / My founder&amp;rsquo;s personal link   My own work &amp;ndash; Visual Studio  Open a project in Visual Studio from my local directory of projects   Collaboration &amp;ndash; GitHub  Open a project in GitHub to log an issue / review a pull request    A tool that I already use quite extensively is Key Pirinha which is the Alfred/Spotlight/Launchy equivalent for windows and is blazing fast.</description>
+    </item>
+    
+  </channel>
+</rss>
