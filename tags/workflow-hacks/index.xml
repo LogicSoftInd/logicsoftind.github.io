@@ -18,5 +18,17 @@
  Talking to folks &amp;ndash; Zoom  Usually via pre defined links - My personal link / Standup link / My founder&amp;rsquo;s personal link   My own work &amp;ndash; Visual Studio  Open a project in Visual Studio from my local directory of projects   Collaboration &amp;ndash; GitHub  Open a project in GitHub to log an issue / review a pull request    A tool that I already use quite extensively is Key Pirinha which is the Alfred/Spotlight/Launchy equivalent for windows and is blazing fast.</description>
     </item>
     
+    <item>
+      <title>scrcpy with autoadb</title>
+      <link>https://devblog.logicsoft.co.in/posts/scrcpy-with-autoadb/</link>
+      <pubDate>Tue, 05 May 2020 08:59:00 +0530</pubDate>
+      
+      <guid>https://devblog.logicsoft.co.in/posts/scrcpy-with-autoadb/</guid>
+      <description>This post is mirrored with permission from Parthasarathy&amp;rsquo;s blog
+Control android device over adb Required tools ADB
+Android Debug Bridge (adb) is a versatile command-line tool that lets you communicate with a device. The adb command facilitates a variety of device actions, such as installing and debugging apps, and it provides access to a Unix shell that you can use to run a variety of commands on a device.
+scrcpy</description>
+    </item>
+    
   </channel>
 </rss>
