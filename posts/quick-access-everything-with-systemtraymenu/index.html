@@ -294,8 +294,8 @@ URL=http://shrayas.com
 </code></pre><h3 id="github">GitHub</h3>
 <p>This was the part that took me some time. On a daily basis, I have to review code in / file issues on / share links to a quite a sum of projects. And for that it is important that I can open the repo on GitHub quickly.</p>
 <p>I am not a fan of GitHub&rsquo;s search. I think its slow and many a time, doesn&rsquo;t throw up the result that I am expecting. Because of this, a while ago .. I wrote a small program for myself to help me with this and called it GitHub Browse</p>
-<p><img src="/img/STM/ghbrowse1.png" alt=""></p>
-<p><img src="/img/STM/ghbrowse2.png" alt=""></p>
+<p><img src="/images/STM/ghbrowse1.png" alt=""></p>
+<p><img src="/images/STM/ghbrowse2.png" alt=""></p>
 <p>It was a quick way for me to open any project that I was interested in. The data was stored as a JSON file that I could refresh using my Personal Access Token from GitHub. It worked fine.</p>
 <p>Since I was moving my workflow to STM, I thought it be wise to consolidate it over there instead of maintaining a separate program for this. So I modified the program to instead spit out <code>.url</code> files linking to all the repositories into a <code>gh</code> folder under the <code>STM</code> folder.</p>
 <pre><code>STM/
@@ -323,7 +323,7 @@ URL=http://shrayas.com
     ├── my.url
     └── name1.url
 </code></pre><p>And I was done! It just works​!</p>
-<p><img src="/img/STM/stm.gif" alt=""></p>
+<p><img src="/images/STM/stm.gif" alt=""></p>
 <h2 id="conclusion">Conclusion</h2>
 <p>If you&rsquo;re looking for a project that will help you to optimize your workflow and allow you to quickly access URLs or folders on your file system, do consider <a href="https://github.com/Hofknecht/SystemTrayMenu">SystemTrayMenu</a>. It is a fantastic tool to add to your arsenal.</p>
 <p>Always scratch your itch. It can lead down wonderful paths of exploration and learning. Being Head of Engineering means I don&rsquo;t spend too much time writing code. This experiment of mine allowed me to jump back into my coding roots and figure things out - I had a lot of fun! :) I even ended up automating the process of creating the <code>STM</code> directory into a nice little C# DSL that I ended up calling <em>Quick</em> and looks like this:</p>
