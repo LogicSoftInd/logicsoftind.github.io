@@ -2,72 +2,72 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://devblog.logicsoft.co.in/about/</loc>
+    <loc>https://devblog.logicsoft.co.in/about/</loc>
     <lastmod>2021-08-20T10:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/</loc>
+    <loc>https://devblog.logicsoft.co.in/</loc>
     <lastmod>2021-08-05T21:34:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/posts/</loc>
+    <loc>https://devblog.logicsoft.co.in/posts/</loc>
     <lastmod>2021-08-05T21:34:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/posts/quick-access-everything-with-systemtraymenu/</loc>
+    <loc>https://devblog.logicsoft.co.in/posts/quick-access-everything-with-systemtraymenu/</loc>
     <lastmod>2021-08-05T21:34:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/systemtraymenu/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/systemtraymenu/</loc>
     <lastmod>2021-08-05T21:34:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/</loc>
     <lastmod>2021-08-05T21:34:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/workflow-hacks/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/workflow-hacks/</loc>
     <lastmod>2021-08-05T21:34:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/posts/generate-a-quick-aws-dashboard-using-linqpad/</loc>
+    <loc>https://devblog.logicsoft.co.in/posts/generate-a-quick-aws-dashboard-using-linqpad/</loc>
     <lastmod>2017-07-31T22:30:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/linqpad/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/linqpad/</loc>
     <lastmod>2017-07-31T22:30:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/simple/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/simple/</loc>
     <lastmod>2017-07-31T22:30:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/csharp/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/csharp/</loc>
     <lastmod>2017-07-16T15:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/</loc>
+    <loc>https://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/</loc>
     <lastmod>2017-07-16T15:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/ideas/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/ideas/</loc>
     <lastmod>2017-07-16T15:00:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/aspnet/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/aspnet/</loc>
     <lastmod>2015-12-11T20:45:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/posts/aspnet5-hosting-hiccups-nginx-kestrel/</loc>
+    <loc>https://devblog.logicsoft.co.in/posts/aspnet5-hosting-hiccups-nginx-kestrel/</loc>
     <lastmod>2015-12-11T20:45:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/kestrel/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/kestrel/</loc>
     <lastmod>2015-12-11T20:45:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/linux/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/linux/</loc>
     <lastmod>2015-12-11T20:45:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/nginx/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/nginx/</loc>
     <lastmod>2015-12-11T20:45:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/posts/asp-net-5-npgsql-linux-mono-4-2/</loc>
+    <loc>https://devblog.logicsoft.co.in/posts/asp-net-5-npgsql-linux-mono-4-2/</loc>
     <lastmod>2015-12-09T21:30:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/mono/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/mono/</loc>
     <lastmod>2015-12-09T21:30:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/tags/clojure/</loc>
+    <loc>https://devblog.logicsoft.co.in/tags/clojure/</loc>
     <lastmod>2015-08-30T10:51:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/posts/dynamic-prepared-statements-in-clojure/</loc>
+    <loc>https://devblog.logicsoft.co.in/posts/dynamic-prepared-statements-in-clojure/</loc>
     <lastmod>2015-08-30T10:51:00+05:30</lastmod>
   </url><url>
-    <loc>http://devblog.logicsoft.co.in/categories/</loc>
+    <loc>https://devblog.logicsoft.co.in/categories/</loc>
   </url>
 </urlset>

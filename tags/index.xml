@@ -2,117 +2,117 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Engineering @ Logic Soft</title>
-    <link>http://devblog.logicsoft.co.in/tags/</link>
+    <link>https://devblog.logicsoft.co.in/tags/</link>
     <description>Recent content in Tags on Engineering @ Logic Soft</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Logic Soft Pvt. Ltd.</copyright>
-    <lastBuildDate>Thu, 05 Aug 2021 21:34:00 +0530</lastBuildDate><atom:link href="http://devblog.logicsoft.co.in/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Aug 2021 21:34:00 +0530</lastBuildDate><atom:link href="https://devblog.logicsoft.co.in/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>SystemTrayMenu</title>
-      <link>http://devblog.logicsoft.co.in/tags/systemtraymenu/</link>
+      <link>https://devblog.logicsoft.co.in/tags/systemtraymenu/</link>
       <pubDate>Thu, 05 Aug 2021 21:34:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/systemtraymenu/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/systemtraymenu/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Workflow Hacks</title>
-      <link>http://devblog.logicsoft.co.in/tags/workflow-hacks/</link>
+      <link>https://devblog.logicsoft.co.in/tags/workflow-hacks/</link>
       <pubDate>Thu, 05 Aug 2021 21:34:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/workflow-hacks/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/workflow-hacks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LINQPad</title>
-      <link>http://devblog.logicsoft.co.in/tags/linqpad/</link>
+      <link>https://devblog.logicsoft.co.in/tags/linqpad/</link>
       <pubDate>Mon, 31 Jul 2017 22:30:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/linqpad/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/linqpad/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Simple</title>
-      <link>http://devblog.logicsoft.co.in/tags/simple/</link>
+      <link>https://devblog.logicsoft.co.in/tags/simple/</link>
       <pubDate>Mon, 31 Jul 2017 22:30:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/simple/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/simple/</guid>
       <description></description>
     </item>
     
     <item>
       <title>CSharp</title>
-      <link>http://devblog.logicsoft.co.in/tags/csharp/</link>
+      <link>https://devblog.logicsoft.co.in/tags/csharp/</link>
       <pubDate>Sun, 16 Jul 2017 15:00:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/csharp/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/csharp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ideas</title>
-      <link>http://devblog.logicsoft.co.in/tags/ideas/</link>
+      <link>https://devblog.logicsoft.co.in/tags/ideas/</link>
       <pubDate>Sun, 16 Jul 2017 15:00:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/ideas/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/ideas/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ASPNet</title>
-      <link>http://devblog.logicsoft.co.in/tags/aspnet/</link>
+      <link>https://devblog.logicsoft.co.in/tags/aspnet/</link>
       <pubDate>Fri, 11 Dec 2015 20:45:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/aspnet/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/aspnet/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kestrel</title>
-      <link>http://devblog.logicsoft.co.in/tags/kestrel/</link>
+      <link>https://devblog.logicsoft.co.in/tags/kestrel/</link>
       <pubDate>Fri, 11 Dec 2015 20:45:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/kestrel/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/kestrel/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Linux</title>
-      <link>http://devblog.logicsoft.co.in/tags/linux/</link>
+      <link>https://devblog.logicsoft.co.in/tags/linux/</link>
       <pubDate>Fri, 11 Dec 2015 20:45:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/linux/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/linux/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Nginx</title>
-      <link>http://devblog.logicsoft.co.in/tags/nginx/</link>
+      <link>https://devblog.logicsoft.co.in/tags/nginx/</link>
       <pubDate>Fri, 11 Dec 2015 20:45:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/nginx/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/nginx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Mono</title>
-      <link>http://devblog.logicsoft.co.in/tags/mono/</link>
+      <link>https://devblog.logicsoft.co.in/tags/mono/</link>
       <pubDate>Wed, 09 Dec 2015 21:30:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/mono/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/mono/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Clojure</title>
-      <link>http://devblog.logicsoft.co.in/tags/clojure/</link>
+      <link>https://devblog.logicsoft.co.in/tags/clojure/</link>
       <pubDate>Sun, 30 Aug 2015 10:51:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/tags/clojure/</guid>
+      <guid>https://devblog.logicsoft.co.in/tags/clojure/</guid>
       <description></description>
     </item>
     

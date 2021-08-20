@@ -2,38 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Engineering @ Logic Soft</title>
-    <link>http://devblog.logicsoft.co.in/</link>
+    <link>https://devblog.logicsoft.co.in/</link>
     <description>Recent content on Engineering @ Logic Soft</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Logic Soft Pvt. Ltd.</copyright>
-    <lastBuildDate>Thu, 05 Aug 2021 21:34:00 +0530</lastBuildDate><atom:link href="http://devblog.logicsoft.co.in/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 05 Aug 2021 21:34:00 +0530</lastBuildDate><atom:link href="https://devblog.logicsoft.co.in/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
-      <link>http://devblog.logicsoft.co.in/about/</link>
+      <link>https://devblog.logicsoft.co.in/about/</link>
       <pubDate>Fri, 20 Aug 2021 10:00:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/about/</guid>
+      <guid>https://devblog.logicsoft.co.in/about/</guid>
       <description>When it comes to making software for the Book Trade (Publishing, Distribution and Retail), Logic Soft Pvt. Ltd. has stood the test of time. Operating since 1986, we have accumulated over 300 man-years of dedicated experience, and today, we probably understand the nuances of Book Trade as much as an experienced person from the trade does; if not better.
 Having been around since the late &amp;rsquo;80s, we have got an opportunity to watch the trade grow into what it is.</description>
     </item>
     
     <item>
       <title>Quick access with SystemTrayMenu</title>
-      <link>http://devblog.logicsoft.co.in/posts/quick-access-everything-with-systemtraymenu/</link>
+      <link>https://devblog.logicsoft.co.in/posts/quick-access-everything-with-systemtraymenu/</link>
       <pubDate>Thu, 05 Aug 2021 21:34:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/posts/quick-access-everything-with-systemtraymenu/</guid>
+      <guid>https://devblog.logicsoft.co.in/posts/quick-access-everything-with-systemtraymenu/</guid>
       <description>Problem Being head of engineering at a firm means having to juggle a lot of context. And in this quest, I am always looking for ways to optimize my workflow. I can (greatly) simplify all of the work I do into these categories:
  Talking to folks &amp;ndash; Zoom  Usually via pre defined links - My personal link / Standup link / My founder&amp;rsquo;s personal link   My own work &amp;ndash; Visual Studio  Open a project in Visual Studio from my local directory of projects   Collaboration &amp;ndash; GitHub  Open a project in GitHub to log an issue / review a pull request    A tool that I already use quite extensively is Key Pirinha which is the Alfred/Spotlight/Launchy equivalent for windows and is blazing fast.</description>
     </item>
     
     <item>
       <title>Generate a quick AWS dashboard using LINQPad</title>
-      <link>http://devblog.logicsoft.co.in/posts/generate-a-quick-aws-dashboard-using-linqpad/</link>
+      <link>https://devblog.logicsoft.co.in/posts/generate-a-quick-aws-dashboard-using-linqpad/</link>
       <pubDate>Mon, 31 Jul 2017 22:30:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/posts/generate-a-quick-aws-dashboard-using-linqpad/</guid>
+      <guid>https://devblog.logicsoft.co.in/posts/generate-a-quick-aws-dashboard-using-linqpad/</guid>
       <description>Context Logic Soft&amp;rsquo;s mainline product &amp;ndash; WINBDS is an on premise software i.e. we install it at the client location and we support them remotely.
 Since a while now,this has been seeing a change. For small installations, usually an instance on the cloud works out cheaper and better. So we&amp;rsquo;ve begun suggesting people to move to AWS when the installation is small enough.
 Turns out, if we&amp;rsquo;re diligent about turning the instances off when we don&amp;rsquo;t need them, a windows box on AWS is actually pretty affordable.</description>
@@ -41,10 +41,10 @@ Turns out, if we&amp;rsquo;re diligent about turning the instances off when we d
     
     <item>
       <title>Express solutions elegantly using your programming language</title>
-      <link>http://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/</link>
+      <link>https://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/</link>
       <pubDate>Sun, 16 Jul 2017 15:00:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/</guid>
+      <guid>https://devblog.logicsoft.co.in/posts/express-solutions-elegantly-using-your-prog-lang/</guid>
       <description>Introduction The post features a case study of a real life problem and the C# programming language. It explains how we went about trying to best express the solution within the bounds of the C# language.
 Although we use the C# programming language here,the ideas shared in this post aren&amp;rsquo;t specific to it and can be applied to any high level language you are working with.
 Problem Recently, for a customer requirement we had to work with a document that has both metadata and data.</description>
@@ -52,10 +52,10 @@ Problem Recently, for a customer requirement we had to work with a document that
     
     <item>
       <title>Hiccups with Hosting ASP .NET 5 apps on Linux (RC1)</title>
-      <link>http://devblog.logicsoft.co.in/posts/aspnet5-hosting-hiccups-nginx-kestrel/</link>
+      <link>https://devblog.logicsoft.co.in/posts/aspnet5-hosting-hiccups-nginx-kestrel/</link>
       <pubDate>Fri, 11 Dec 2015 20:45:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/posts/aspnet5-hosting-hiccups-nginx-kestrel/</guid>
+      <guid>https://devblog.logicsoft.co.in/posts/aspnet5-hosting-hiccups-nginx-kestrel/</guid>
       <description>Background After the recent dance with multiple Mono versions, the next step was to actually host the application.
 Even though the app is largely still unfinished, I wanted to give it a shot on the staging instance to get a feel for things.
 The general way to host apps on a Linux box is to have a NGINX reverse proxy in front, listening to different names on port 80 and to proxy the requests to internally running servers.</description>
@@ -63,10 +63,10 @@ The general way to host apps on a Linux box is to have a NGINX reverse proxy in 
     
     <item>
       <title>ASP .NET 5, Npgsql, Linux &amp; Mono 4.2</title>
-      <link>http://devblog.logicsoft.co.in/posts/asp-net-5-npgsql-linux-mono-4-2/</link>
+      <link>https://devblog.logicsoft.co.in/posts/asp-net-5-npgsql-linux-mono-4-2/</link>
       <pubDate>Wed, 09 Dec 2015 21:30:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/posts/asp-net-5-npgsql-linux-mono-4-2/</guid>
+      <guid>https://devblog.logicsoft.co.in/posts/asp-net-5-npgsql-linux-mono-4-2/</guid>
       <description>Background Logic Soft&amp;rsquo;s primary application is a Windows based application written in C# using Windows.Forms. So when Microsoft announced ASP .NET 5 RC1, needless to say, we were quite excited.
 We picked it up and started our experimentation - writing smaller applications and porting some of our side projects to the CoreCLR platform. As long as we didn&amp;rsquo;t go to the place that needed WIN32 APIs, it worked seamlessly.
 With a small sum of experience, we took up the task of writing one of our internal dashboards with it.</description>
@@ -74,10 +74,10 @@ With a small sum of experience, we took up the task of writing one of our intern
     
     <item>
       <title>Dynamic prepared statements in Clojure</title>
-      <link>http://devblog.logicsoft.co.in/posts/dynamic-prepared-statements-in-clojure/</link>
+      <link>https://devblog.logicsoft.co.in/posts/dynamic-prepared-statements-in-clojure/</link>
       <pubDate>Sun, 30 Aug 2015 10:51:00 +0530</pubDate>
       
-      <guid>http://devblog.logicsoft.co.in/posts/dynamic-prepared-statements-in-clojure/</guid>
+      <guid>https://devblog.logicsoft.co.in/posts/dynamic-prepared-statements-in-clojure/</guid>
       <description>So just recently, at Logic Soft, we put our first (small) clojure project into production. It was a small library management system that was custom developed for one of our existing clients.
 At Logic Soft, we are majorly a .NET house but we&amp;rsquo;re beginning to experiment with different platforms and technologies and felt that this was a small enough project to give clojure a shot (alongside other experiments we conducted with it).</description>
     </item>

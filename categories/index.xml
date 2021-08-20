@@ -2,10 +2,10 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on Engineering @ Logic Soft</title>
-    <link>http://devblog.logicsoft.co.in/categories/</link>
+    <link>https://devblog.logicsoft.co.in/categories/</link>
     <description>Recent content in Categories on Engineering @ Logic Soft</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <copyright>Logic Soft Pvt. Ltd.</copyright><atom:link href="http://devblog.logicsoft.co.in/categories/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>Logic Soft Pvt. Ltd.</copyright><atom:link href="https://devblog.logicsoft.co.in/categories/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
