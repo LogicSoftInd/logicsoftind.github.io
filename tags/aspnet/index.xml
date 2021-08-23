@@ -7,7 +7,17 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Logic Soft Pvt. Ltd.</copyright>
-    <lastBuildDate>Fri, 11 Dec 2015 20:45:00 +0530</lastBuildDate><atom:link href="https://devblog.logicsoft.co.in/tags/aspnet/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 May 2021 10:00:00 +0530</lastBuildDate><atom:link href="https://devblog.logicsoft.co.in/tags/aspnet/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cookie logging in ASP Net Core</title>
+      <link>https://devblog.logicsoft.co.in/posts/cookie-logging-in-aspnetcore/</link>
+      <pubDate>Sun, 30 May 2021 10:00:00 +0530</pubDate>
+      
+      <guid>https://devblog.logicsoft.co.in/posts/cookie-logging-in-aspnetcore/</guid>
+      <description>Sometime we have to do logging on Cookies for debugging in development site or in the production site. We had a situation like that,
+In our big Web API that serves data to the android client. We used authentication for that client and server communication. authentication of app is based on uniquely generated Authentication token. It is happened automatically whenever the login required. One time we had an issue that is request from out client passes authentication for one request but failed for next request which is raised immediately after the first request to the same URI.</description>
+    </item>
+    
     <item>
       <title>Hiccups with Hosting ASP .NET 5 apps on Linux (RC1)</title>
       <link>https://devblog.logicsoft.co.in/posts/aspnet5-hosting-hiccups-nginx-kestrel/</link>

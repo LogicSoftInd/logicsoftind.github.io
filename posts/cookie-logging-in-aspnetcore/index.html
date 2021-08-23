@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> Cookie logging in ASP Net Core | Engineering @ Logic Soft</title>
+  <link rel = 'canonical' href = 'https://devblog.logicsoft.co.in/posts/cookie-logging-in-aspnetcore/'>
+  <meta name="description" content="Welcome to [Logic Soft](http://logicsoft.co.in)&#39;s engineering blog.
+
+We have been a technology company since 1986. To put that into perspective, we have been around since **before** the Internet went mainstream. Our product helps hundreds of businesses get absolute control of their day to day activities. Chances are that if you&#39;ve walked into a recognized book store in India (or even some places abroad), then it has been powered by Logic Soft&#39;s software behind the scenes.
+
+We&#39;re a bunch of hardworking individuals who believe that our work has an impact on the hundreds of clients that we serve. We believe in writing software that is readable and boring.
+">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="Cookie logging in ASP Net Core" />
+<meta property="og:description" content="Sometime we have to do logging on Cookies for debugging in development site or in the production site. We had a situation like that,
+In our big Web API that serves data to the android client. We used authentication for that client and server communication. authentication of app is based on uniquely generated Authentication token. It is happened automatically whenever the login required. One time we had an issue that is request from out client passes authentication for one request but failed for next request which is raised immediately after the first request to the same URI." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://devblog.logicsoft.co.in/posts/cookie-logging-in-aspnetcore/" /><meta property="og:image" content="https://devblog.logicsoft.co.in/images/featuregraphic.jpg"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2021-05-30T10:00:00+05:30" />
+<meta property="article:modified_time" content="2021-05-30T10:00:00+05:30" />
+
+
+  <meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="https://devblog.logicsoft.co.in/images/featuregraphic.jpg"/>
+
+<meta name="twitter:title" content="Cookie logging in ASP Net Core"/>
+<meta name="twitter:description" content="Sometime we have to do logging on Cookies for debugging in development site or in the production site. We had a situation like that,
+In our big Web API that serves data to the android client. We used authentication for that client and server communication. authentication of app is based on uniquely generated Authentication token. It is happened automatically whenever the login required. One time we had an issue that is request from out client passes authentication for one request but failed for next request which is raised immediately after the first request to the same URI."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="https://devblog.logicsoft.co.in/css/styles.94f653e9e151e28067a7c5dbbc4600cbd5a3c721e79faaf971e523c40f3b249b8e4f20bb57810dfffa8d559ca5c140fd56eb4cd9c0853113ad08e66afdb08bdd.css" integrity="sha512-lPZT6eFR4oBnp8XbvEYAy9WjxyHnn6r5ceUjxA87JJuOTyC7V4EN//qNVZylwUD9VutM2cCFMROtCOZq/bCL3Q=="> 
+
+  
+   <link rel="stylesheet" href="https://devblog.logicsoft.co.in/css/custom.css"> 
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="https://devblog.logicsoft.co.in/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Archive</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" https://devblog.logicsoft.co.in/posts/scrcpy-with-autoadb/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="https://devblog.logicsoft.co.in/posts/quick-access-everything-with-systemtraymenu/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&text=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&title=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&is_video=false&description=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Cookie%20logging%20in%20ASP%20Net%20Core&body=Check out this article: https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&title=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&title=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&name=Cookie%20logging%20in%20ASP%20Net%20Core&description=Sometime%20we%20have%20to%20do%20logging%20on%20Cookies%20for%20debugging%20in%20development%20site%20or%20in%20the%20production%20site.%20We%20had%20a%20situation%20like%20that%2c%0aIn%20our%20big%20Web%20API%20that%20serves%20data%20to%20the%20android%20client.%20We%20used%20authentication%20for%20that%20client%20and%20server%20communication.%20authentication%20of%20app%20is%20based%20on%20uniquely%20generated%20Authentication%20token.%20It%20is%20happened%20automatically%20whenever%20the%20login%20required.%20One%20time%20we%20had%20an%20issue%20that%20is%20request%20from%20out%20client%20passes%20authentication%20for%20one%20request%20but%20failed%20for%20next%20request%20which%20is%20raised%20immediately%20after%20the%20first%20request%20to%20the%20same%20URI." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&t=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cookie-authentication-events">Cookie Authentication Events</a></li>
+        <li><a href="#cookie-logging-middleware">Cookie Logging Middleware</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        Cookie logging in ASP Net Core
+      </h1>
+      <div class="meta">
+        
+
+
+        <div class="postdate">
+          
+          <time datetime="2021-05-30 10:00:00 &#43;0530 IST" itemprop="datePublished">2021-05-30</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          4 minute read
+        </div>
+        
+        
+        
+        <div class="article-tag">
+            <i class="fas fa-tag"></i>
+            
+            
+            <a class="tag-link" href="/tags/aspnet" rel="tag">ASPNet</a>
+            
+        </div>
+        
+
+        
+        <br/>
+        <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <span itemprop="name">Ekalaivan (Senior .NET Dev)</span>
+        </span>
+        
+
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <p>Sometime we have to do logging on Cookies for debugging in development site or
+in the production site. We had a situation like that,</p>
+<p>In our big Web API that serves data to the android client. We used
+authentication for that client and server communication. authentication of app
+is based on uniquely generated Authentication token. It is happened
+automatically whenever the login required. One time we had an issue that is
+request from out client <em>passes authentication for one request but failed for
+next request</em> which is raised immediately after the first request to the same
+URI. We haven&rsquo;t met that situation in any other apps. that error happened in one
+or two devices only.</p>
+<p>Then we have started debugging the session, First we have verified that the
+login token is valid or not, that is valid, then we are moved to next step of
+our process. Whatever we did in business side is always looking fine from any
+perspective. We had no idea what is going on. If at all that problem is exists
+in API side, why selected <em>one or two devices having problem not all</em>.</p>
+<p>Finally, we have landed on the debugging session of what we are getting as
+cookie. because authentication is based on cookie only right. If that submitted
+cookie is valid then problem is in the API side. If the cookie is not what we
+have given to them then the problem is in app side. To do this debug session we
+have started analyzing how to log the cookie, To know/log the cookie we have to
+know following details</p>
+<ul>
+<li>Cookie Generated by Server on login</li>
+<li>Cookie Submitted By the Client on Each Request</li>
+</ul>
+<p>For, this big question ASP.Net Core provides best solutions. We took</p>
+<ul>
+<li>Cookie Authentication Events to Know the generated cookie</li>
+<li>Middle ware to know the submitted cookie.</li>
+</ul>
+<h3 id="cookie-authentication-events">Cookie Authentication Events</h3>
+<p>Allows subscribing to events raised during cookie authentication. By subscribing
+the cookie authentication events we can know the cookie and its values. Mainly
+this cookie authentication events has following events.</p>
+<ul>
+<li>Redirect To Access Denied</li>
+<li>Redirect To Login</li>
+<li>Redirect To Logout</li>
+<li>Redirect To Return URL</li>
+<li>Signing In</li>
+<li>Signed In</li>
+<li>Signed Out</li>
+<li>Validate Principal</li>
+</ul>
+<p>we have used <code>RedirectToAccessDenied</code>, <code>SignedIn</code>,<code>SigningIn</code>  events.</p>
+<p>Finally Our <code>CookieAuthenticationEvents</code> class looks like this</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Authentication;
+<span style="color:#ff79c6">using</span> Microsoft.AspNetCore.Authentication.Cookies;
+<span style="color:#ff79c6">using</span> System.Threading.Tasks;
+
+<span style="color:#ff79c6">namespace</span> Web
+{
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">MyCookieAuthenticationEvents</span> : CookieAuthenticationEvents
+    {
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> Task RedirectToAccessDenied(RedirectContext&lt;CookieAuthenticationOptions&gt; context)
+        {
+		   <span style="color:#6272a4">//Logging The Required Details
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">//Request Body has the client submitted cookie, if submitted 
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// Request available in the context. `context.HttpContext.Request`
+</span><span style="color:#6272a4"></span>         	<span style="color:#ff79c6">return</span> <span style="color:#ff79c6">base</span>.RedirectToAccessDenied(context);
+        }
+
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> Task SigningIn(CookieSigningInContext context)
+        {
+            <span style="color:#6272a4">//Logging The Required Details
+</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">base</span>.SigningIn(context);
+        }
+
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">override</span> Task SignedIn(CookieSignedInContext context)
+        {            
+            <span style="color:#6272a4">//Logging The Required Details
+</span><span style="color:#6272a4"></span>           	<span style="color:#6272a4">//Generated new cookie informations available here. In the request Body. 
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">// Request available in the HttpContext. `context.HttpContext.Request`
+</span><span style="color:#6272a4"></span>            <span style="color:#ff79c6">return</span> <span style="color:#ff79c6">base</span>.SigningIn(context);
+        }
+	}
+}
+</code></pre></div><p>We have to mention this is the cookie authentication event listener somewhere
+right, This is done in the place where we define cookie authentication schemes.
+In Our approach that is <code>startup.cs</code> class. This authentication configurations
+is done under the <code>ConfigureServices</code>   section of <code>startup.cs</code> class.
+Somewhere in the startup class we definitely used something like below,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> ConfigureServices(IServiceCollection services)
+{
+    ...
+    
+    services
+        .AddAuthentication()
+        .AddCookie(<span style="color:#f1fa8c">&#34;&lt;Name Of the Authentication Scheme&gt;&#34;</span>, options =&gt; 
+            { 
+            	... 
+        	});
+    ...
+}
+</code></pre></div><p>To mention the Cookie authentication Events. we will do the following changes
+on the above code block</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> ConfigureServices(IServiceCollection services)
+{
+    ...
+    
+    services
+        .AddAuthentication()
+        .AddCookie(<span style="color:#f1fa8c">&#34;&#34;</span>, options =&gt; 
+            { 
+            	...
+                options.Events = <span style="color:#ff79c6">new</span> MyCookieAuthenticationEvents(); <span style="color:#6272a4">// this is newly added line
+</span><span style="color:#6272a4"></span>        	});
+    ...
+}
+</code></pre></div><p>Now, This will tell us what cookie is generated and related details.</p>
+<h3 id="cookie-logging-middleware">Cookie Logging Middleware</h3>
+<p>The second big portion of our analysis is logging the cookie. To do this we have
+decided to use middleware. Our cookie logging middleware looks like</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">using</span> System.Threading.Tasks;
+
+<span style="color:#ff79c6">namespace</span> Web
+{   
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">MyCookieLogMiddleware</span>
+    {
+        <span style="color:#ff79c6">private</span> <span style="color:#ff79c6">readonly</span> RequestDelegate <span style="color:#bd93f9">_</span>next;
+
+        <span style="color:#ff79c6">public</span> MyCookieLogMiddleware(RequestDelegate next)
+        {
+            <span style="color:#bd93f9">_</span>next = next;
+        }
+
+        <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">async</span> Task Invoke(HttpContext context)
+        {
+            <span style="color:#ff79c6">await</span> <span style="color:#bd93f9">_</span>next.Invoke(context);
+            
+            <span style="color:#6272a4">//Logging the required details
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">//Submitted Cookies available in the request. `context.Request.Cookies`
+</span><span style="color:#6272a4"></span>            <span style="color:#6272a4">//Generated or response cookies available in the response header. `context.Response.Headers[&#34;Set-Cookie&#34;]`
+</span><span style="color:#6272a4"></span>        )                    
+	}
+}
+</code></pre></div><p>To work this middleware we have to add it to the <code>Application Builder</code> of our
+application. Which is also possible via the <code>startup.cs</code> class. This
+<code>Startup.cs</code> class has the <code>Configure</code> method. this can done easily by having
+middleware extension.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> <span style="color:#ff79c6">class</span> <span style="color:#50fa7b">MiddlewareExtensions</span>
+{
+    <span style="color:#ff79c6">public</span> <span style="color:#ff79c6">static</span> IApplicationBuilder UseMyCookieLogMiddleware(<span style="color:#ff79c6">this</span> IApplicationBuilder instance)
+    {
+        <span style="color:#ff79c6">return</span> instance.UseMiddleware&lt;MyCookieLogMiddleware&gt;();
+    }
+}
+
+</code></pre></div><p>Finally In <code>startup.cs</code></p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-c#" data-lang="c#"><span style="color:#ff79c6">public</span> <span style="color:#ff79c6">void</span> Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+{
+    ...
+	app.UseAuthentication();
+	app.UseCookieLogMiddleware(); <span style="color:#6272a4">//this is the line we have to include.
+</span><span style="color:#6272a4"></span>    ...
+    app.UseMvc();
+}
+</code></pre></div><p>This cookie logging middleware should be presented between <code>UseAuthentication</code>
+and <code>UseMvc</code> middleware definitions.</p>
+<p>Done! Now try logging cookie.</p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Archive</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cookie-authentication-events">Cookie Authentication Events</a></li>
+        <li><a href="#cookie-logging-middleware">Cookie Logging Middleware</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&text=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&title=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&is_video=false&description=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=Cookie%20logging%20in%20ASP%20Net%20Core&body=Check out this article: https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&title=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&title=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&name=Cookie%20logging%20in%20ASP%20Net%20Core&description=Sometime%20we%20have%20to%20do%20logging%20on%20Cookies%20for%20debugging%20in%20development%20site%20or%20in%20the%20production%20site.%20We%20had%20a%20situation%20like%20that%2c%0aIn%20our%20big%20Web%20API%20that%20serves%20data%20to%20the%20android%20client.%20We%20used%20authentication%20for%20that%20client%20and%20server%20communication.%20authentication%20of%20app%20is%20based%20on%20uniquely%20generated%20Authentication%20token.%20It%20is%20happened%20automatically%20whenever%20the%20login%20required.%20One%20time%20we%20had%20an%20issue%20that%20is%20request%20from%20out%20client%20passes%20authentication%20for%20one%20request%20but%20failed%20for%20next%20request%20which%20is%20raised%20immediately%20after%20the%20first%20request%20to%20the%20same%20URI." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=https%3a%2f%2fdevblog.logicsoft.co.in%2fposts%2fcookie-logging-in-aspnetcore%2f&t=Cookie%20logging%20in%20ASP%20Net%20Core" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2021  Logic Soft Pvt. Ltd. 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Archive</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+<script src=/js/code-copy.js></script>
+
+
+
+</html>

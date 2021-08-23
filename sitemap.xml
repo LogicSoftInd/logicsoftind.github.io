@@ -23,6 +23,12 @@
     <loc>https://devblog.logicsoft.co.in/tags/workflow-hacks/</loc>
     <lastmod>2021-08-05T21:34:00+05:30</lastmod>
   </url><url>
+    <loc>https://devblog.logicsoft.co.in/tags/aspnet/</loc>
+    <lastmod>2021-05-30T10:00:00+05:30</lastmod>
+  </url><url>
+    <loc>https://devblog.logicsoft.co.in/posts/cookie-logging-in-aspnetcore/</loc>
+    <lastmod>2021-05-30T10:00:00+05:30</lastmod>
+  </url><url>
     <loc>https://devblog.logicsoft.co.in/tags/android/</loc>
     <lastmod>2020-05-05T08:59:00+05:30</lastmod>
   </url><url>
@@ -49,9 +55,6 @@
   </url><url>
     <loc>https://devblog.logicsoft.co.in/tags/ideas/</loc>
     <lastmod>2017-07-16T15:00:00+05:30</lastmod>
-  </url><url>
-    <loc>https://devblog.logicsoft.co.in/tags/aspnet/</loc>
-    <lastmod>2015-12-11T20:45:00+05:30</lastmod>
   </url><url>
     <loc>https://devblog.logicsoft.co.in/posts/aspnet5-hosting-hiccups-nginx-kestrel/</loc>
     <lastmod>2015-12-11T20:45:00+05:30</lastmod>
